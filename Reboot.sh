@@ -4,5 +4,5 @@ zenity --title='Reboot' --width=440 --question --text='Reboot Now?' --ok-label='
 answer=$?
 
 if [ $answer -eq 0 ]; then
-	dbus-send --system --print-reply --dest="org.freedesktop.ConsoleKit" /org/freedesktop/ConsoleKit/Manager org.freedesktop.ConsoleKit.Manager.Restart
+	dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Reboot" boolean:true
 fi

@@ -4,5 +4,5 @@ zenity --title='Suspend' --width=440 --question --text='Suspend Now?' --ok-label
 answer=$?
 
 if [ $answer -eq 0 ]; then
-	dbus-send --system --print-reply --dest="org.freedesktop.UPower" /org/freedesktop/UPower org.freedesktop.UPower.Suspend
+	dbus-send --system --print-reply --dest=org.freedesktop.login1 /org/freedesktop/login1 "org.freedesktop.login1.Manager.Suspend" boolean:true
 fi
